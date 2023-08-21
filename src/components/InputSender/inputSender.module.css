@@ -1,0 +1,15 @@
+.wrapper {
+    align-items: flex-end;
+    padding: 20px 30px 30px;
+    background-color:#fee8ac;
+    border-radius: 30px;
+    margin: 45px 0 auto;
+}
+
+.input {
+    margin-top: 20px;
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+    background-color: inherit;
+}

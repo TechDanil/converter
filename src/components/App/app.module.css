@@ -1,0 +1,32 @@
+.container {
+    position: relative;
+    display: flex;
+    padding: 30px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.wrapper {
+    padding: 50px 24px 20px;
+    min-height: 700px;
+    width: 400px;
+    border: 1px #f4f3f8 solid;
+    border-radius: 30px;
+}
+
+.title {
+    text-align: center;
+    color:#f4f3f8;
+}
+
+.error__text {
+    text-align: center;
+}
+
+.description {
+    text-align: center;
+}
+
+.submit__area {
+    position: relative;
+}

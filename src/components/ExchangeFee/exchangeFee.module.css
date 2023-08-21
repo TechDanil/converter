@@ -1,0 +1,22 @@
+.wrapper {
+    margin-top: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 26px;
+    background-color: #242529;
+    border-radius: 30px;
+}
+
+.text, .price {
+    color: #feffff;
+}
+
+.description {
+    margin-top: 5px;
+    color: #87888c;
+}
+
+.price {
+    font-size: 28px;
+}
