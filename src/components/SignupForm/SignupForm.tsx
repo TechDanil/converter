@@ -1,4 +1,4 @@
- import { useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from '../../schema/schema';
 
@@ -9,8 +9,15 @@ const SignUpForm = () => {
         resolver: yupResolver(schema),
     });
 
+    const onSubmitHandler = () => {
+
+    }
+
     return (
-        <form className={styles.form}>
+        <form 
+            className={styles.form}
+            onSubmit={onSubmitHandler}
+        >
             <input 
                 className={styles.un} 
                 type="text" 
