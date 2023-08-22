@@ -1,12 +1,10 @@
-import React from 'react';
-
-import { useForm } from 'react-hook-form';
+ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from '../../schema/schema';
 
 import styles from './signupForm.module.css'
 
-const SignUp = () => {
+const SignUpForm = () => {
     const { register, handleSubmit } = useForm({
         resolver: yupResolver(schema),
     });
@@ -37,4 +35,4 @@ const SignUp = () => {
     );
 }
 
-export default SignUp;
+export default SignUpForm;
