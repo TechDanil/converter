@@ -4,19 +4,29 @@ import { schema } from '../../schema/schema';
 
 import styles from './signupForm.module.css'
 
+import { AuthService } from '../../services/AuthService';
+import { ISignupForm } from '../../interfaces/ISignupForm.interface';
+
+const authService = new AuthService();
+
 const SignUpForm = () => {
     const { register, handleSubmit } = useForm({
         resolver: yupResolver(schema),
     });
 
-    const onSubmitHandler = () => {
-
+    const onSubmitHandler = async (data: ISignupForm) => {
+        try {
+            await authService.registerUser(data);
+            console.log('Registration successful');
+        } catch(error) {
+            console.error('Registration failed:', error);
+        }
     }
 
     return (
         <form 
             className={styles.form}
-            onSubmit={onSubmitHandler}
+            onSubmit={handleSubmit(onSubmitHandler)}
         >
             <input 
                 className={styles.un} 

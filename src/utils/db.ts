@@ -1,6 +1,6 @@
 import * as dbSettings from '../settings/settings';
 
-const openDB = () => {
+const openDB = (): Promise<IDBDatabase> => {
     return new Promise((resolve, reject) => {
         const request = window.indexedDB.open(dbSettings.DB_NAME, dbSettings.ACTUAL_DB_VERSION);
 
