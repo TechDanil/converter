@@ -1,4 +1,4 @@
-import { FC, useEffect, Ref } from "react";
+import { FC, useEffect, Ref, ChangeEvent } from "react";
 import { useActions } from "../../hooks/useActions.hook";
 import { useTypedSelector } from "../../hooks/useTypedSelector.hook";
 
@@ -15,8 +15,8 @@ interface IInputSenderAttributes {
     inputSenderRef: Ref<HTMLInputElement>;
 }
 
-const InputSender: FC<IInputSenderAttributes> = ({ 
-    tokens, 
+const InputSender: FC<IInputSenderAttributes> = ({
+    tokens,
     selectedToken,
     amount,
     inputSenderRef
@@ -31,25 +31,35 @@ const InputSender: FC<IInputSenderAttributes> = ({
         }
     }, [isInputDataCleared])
 
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const inputValue = e.target.value;
+        const newValue = inputValue.replace(/[^\d.]/g, '');
+
+        if (parseFloat(newValue) < 0) {
+            return;
+        }
+
+        setFromTokenAmount(newValue);
+    }
 
     return (
-      <div className={styles.wrapper}>
-        <h4 className={styles.title}>Send</h4>
-        <input
-          ref={inputSenderRef}
-          className={styles.input}
-          type="number"
-          placeholder="Введите валюту"
-          value={amount}
-          onChange={(e) => setFromTokenAmount(e.target.value)}
-        />
+        <div className={styles.wrapper}>
+            <h4 className={styles.title}>Send</h4>
+            <input
+                ref={inputSenderRef}
+                className={styles.input}
+                type="number"
+                placeholder="Введите валюту"
+                value={amount}
+                onChange={handleInputChange}
+            />
 
-        <CryptoSelect
-          onChangeTokenHandler={(selectedToken: IToken) => setFromToken(selectedToken)}
-          tokens={tokens}
-          selectedToken={selectedToken}
-        />
-      </div>
+            <CryptoSelect
+                onChangeTokenHandler={(selectedToken: IToken) => setFromToken(selectedToken)}
+                tokens={tokens}
+                selectedToken={selectedToken}
+            />
+        </div>
     );
 }
 

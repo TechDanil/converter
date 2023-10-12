@@ -20,7 +20,7 @@ const InputReceiver: FC<IInputReceiverAttributes> = ({
     onConvertedAmountChangeHandler
 }) => {
     const { setToToken } = useActions()
-   
+    console.log(amount)
 
     const onConvertedChangeAmountHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const convertedInput = e.target.value;
